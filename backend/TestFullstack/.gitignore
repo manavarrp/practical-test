@@ -1,0 +1,40 @@
+# Visual Studio
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.vscode-test/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+Generated\
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Debug and Release folders
+Debug/
+Release/
+
+# .NET
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Entity Framework
+*.ndoc
+*.ndoc.xml
+_migrations/
