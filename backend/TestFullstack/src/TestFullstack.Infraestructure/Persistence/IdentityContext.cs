@@ -12,5 +12,14 @@ namespace TestFullstack.Infraestructure.Persistence
 
         public DbSet<Occupation> Occupations { get; set; }
         public DbSet<Customer> Customers { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Customer>()
+                .HasIndex(c => c.IdentificationNumber)
+                .IsUnique();
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

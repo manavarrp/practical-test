@@ -8,7 +8,6 @@ namespace TestFullstack.Domain.Entities.Identity
         public string LastName { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdateAt { get; set; }
-
         public string? DeletedBy { get; set; }
         public DateTime? DeleteAt { get; set; }
     }

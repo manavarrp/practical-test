@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestFullstack.Infraestructure.Persistence;
 
@@ -11,9 +12,11 @@ using TestFullstack.Infraestructure.Persistence;
 namespace TestFullstack.Infraestructure.Persistence.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    partial class IdentityContextModelSnapshot : ModelSnapshot
+    [Migration("20240622184735_ADDFieldNumberIdenOnCustomer")]
+    partial class ADDFieldNumberIdenOnCustomer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -144,7 +147,7 @@ namespace TestFullstack.Infraestructure.Persistence.Migrations
 
                     b.Property<string>("IdentificationNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -161,9 +164,6 @@ namespace TestFullstack.Infraestructure.Persistence.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IdentificationNumber")
-                        .IsUnique();
 
                     b.HasIndex("OccupationId");
 

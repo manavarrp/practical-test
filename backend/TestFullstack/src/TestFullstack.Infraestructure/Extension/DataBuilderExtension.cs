@@ -8,6 +8,7 @@ using System.Text;
 using TestFullstack.Application.Interface.Identity;
 using TestFullstack.Infraestructure.Persistence.Repository;
 using TestFullstack.Infraestructure.Persistence;
+using TestFullstack.Application.Interface;
 
 
 namespace TestFullstack.Infraestructure.Extension
@@ -19,6 +20,7 @@ namespace TestFullstack.Infraestructure.Extension
             services.AddDbContext<IdentityContext>(options => options.UseSqlServer(configuration.GetConnectionString("Default")));
 
             services.AddScoped<IAccountApplication, AccountRepository>();
+            services.AddScoped<ICustomerApplication, CustomerRepositoy>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             // Configuración de la autenticación JWT
