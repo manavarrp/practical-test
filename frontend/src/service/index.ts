@@ -1,4 +1,3 @@
-// services/loginService.ts
 import axios from "@/axios";
 
 interface LoginParams {

@@ -22,7 +22,7 @@ namespace TestFullstack.Application.Features.Queries.GetCustomerByNumberIden
 
             if (customer == null)
             {
-                throw new NotFoundException("Customer not found");
+                throw new NotFoundException("Customer no encontrado");
             }
 
             return _mapper.Map<GetCustomerByNumIdenDto>(customer);

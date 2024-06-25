@@ -119,10 +119,7 @@ export const EditCustomer = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel
-                      className="uppercase text-xs font-bold text-zinc-500
-                            dark:text-secondary/70"
-                    >
+                    <FormLabel >
                       Nombre
                     </FormLabel>
                     <FormControl>
@@ -143,10 +140,7 @@ export const EditCustomer = () => {
                 name="lastName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel
-                      className="uppercase text-xs font-bold text-zinc-500
-                            dark:text-secondary/70"
-                    >
+                    <FormLabel>
                       Apellidos
                     </FormLabel>
                     <FormControl>

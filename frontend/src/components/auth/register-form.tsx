@@ -34,16 +34,15 @@ const { register, isLoading } = useRegister();
   const onSubmit =async (values: z.infer<typeof RegisterSchema>) => {
     try {
       await register(values);
-      // Redirige al dashboard u otra página después del inicio de sesión
       
     } catch (error) {
       console.error('Register error:', error);
-      // Maneja el error de inicio de sesión
     }
   };
   return (
     <CardWrapped
-      headerLabel="Registrarse"
+      headerTitle="Registrarse"
+      headerLabel="Completa todos los campos"
       backButtonLabel="¿Ya tienes una cuenta?"
       backButtonHref="/auth/login"
     >

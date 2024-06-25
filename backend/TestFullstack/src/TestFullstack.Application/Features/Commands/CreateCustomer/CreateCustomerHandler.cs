@@ -29,7 +29,7 @@ namespace TestFullstack.Application.Features.Commands.CreateCustomer
 
                 if (errors == null || errors.Count > 0)
                 {
-                    return new BaseResponse(false, "No fue posible crear el cliente", errors);
+                    return new BaseResponse(false, "No fue posible crear el customer", errors);
                 }
 
                 var customer = _mapper.Map<Customer>(request);
@@ -40,7 +40,7 @@ namespace TestFullstack.Application.Features.Commands.CreateCustomer
             }
             catch (Exception ex) 
             {
-                return new BaseResponse(false, $"Error al crear el usuario: {ex.Message}");
+                return new BaseResponse(false, $"Error al crear el customer: {ex.Message}");
             }
         }
     }

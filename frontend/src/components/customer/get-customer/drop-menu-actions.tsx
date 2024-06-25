@@ -1,4 +1,3 @@
-// DropdownMenuActions.tsx
 import React from "react";
 import {
   DropdownMenu,
@@ -39,7 +38,7 @@ export const DropdownMenuActions: React.FC<DropdownMenuActionsProps> = ({ custom
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuLabel className="font-bold">Actions</DropdownMenuLabel>
+        <DropdownMenuLabel className="font-bold">Acciones</DropdownMenuLabel>
         <DropdownMenuItem onClick={handleEditClick}>Editar</DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={handleDeleteClick}>Eliminar</DropdownMenuItem>

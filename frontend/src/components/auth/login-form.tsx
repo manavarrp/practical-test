@@ -18,7 +18,6 @@ import { Button } from "../ui/button";
 import useLogin from "@/hooks/useLogin";
 
 
-
 const LoginForm = () => {
   const { login, isLoading } = useLogin();
 
@@ -29,20 +28,18 @@ const LoginForm = () => {
       password: "",
     },
   });
-console.log('proces', process.env.JWT_SECRET)
   const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
     console.log(values);
     try {
       await login(values);
-      // Redirige al dashboard u otra página después del inicio de sesión
       
     } catch (error) {
       console.error('Login error:', error);
-      // Maneja el error de inicio de sesión
     }
   };
   return (
     <CardWrapped
+      headerTitle="Iniciar Sesión"
       headerLabel="Bienvenido"
       backButtonLabel="¿No tienes una cuenta?"
       backButtonHref="/auth/register"

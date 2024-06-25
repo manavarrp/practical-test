@@ -1,4 +1,4 @@
-import { postCustomerService, putCustomerService } from "@/service";
+import { putCustomerService } from "@/service";
 import { useCallback, useState } from "react";
 import { toast } from "react-toastify";
 

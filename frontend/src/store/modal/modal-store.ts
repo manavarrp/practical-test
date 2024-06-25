@@ -24,7 +24,7 @@ export const useModal = create<ModalStore>((set) => ({
   onOpen: (type, data = {}) => set({ isOpen: true, type, data }),
   onClose: () => {
     set((state) => {
-      state.getCustomer(); // call the function to update customers
+      state.getCustomer(); 
       return { type: null, isOpen: false, data: {} };
     });
   },

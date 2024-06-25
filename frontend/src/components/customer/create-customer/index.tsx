@@ -58,7 +58,7 @@ export const CreateCustomer = () => {
 
   const onSubmit = async (values: z.infer<typeof CustomerSchema>) => {
     try {
-      await postCustomer(values)
+      await postCustomer(values);
       form.reset();
       onClose();
     } catch (error) {
@@ -108,12 +108,7 @@ export const CreateCustomer = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel
-                      className="uppercase text-xs font-bold text-zinc-500
-                            dark:text-secondary/70"
-                    >
-                      Nombre
-                    </FormLabel>
+                    <FormLabel>Nombre</FormLabel>
                     <FormControl>
                       <Input
                         disabled={isLoading}
@@ -131,12 +126,7 @@ export const CreateCustomer = () => {
                 name="lastName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel
-                      className="uppercase text-xs font-bold text-zinc-500
-                            dark:text-secondary/70"
-                    >
-                      Apellidos
-                    </FormLabel>
+                    <FormLabel>Apellidos</FormLabel>
                     <FormControl>
                       <Input
                         disabled={isLoading}
@@ -160,7 +150,7 @@ export const CreateCustomer = () => {
                         disabled={isLoading}
                         value={field.value.toString()}
                         onValueChange={(value) => field.onChange(Number(value))}
-                        >
+                      >
                         <SelectTrigger>
                           <SelectValue placeholder="Selecciona una ocupación" />
                         </SelectTrigger>

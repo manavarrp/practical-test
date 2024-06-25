@@ -1,5 +1,4 @@
 import React from "react";
-import LogoAvatar from "../logo-avatar";
 import Image from "next/image";
 
 const NavigationLogo = () => {

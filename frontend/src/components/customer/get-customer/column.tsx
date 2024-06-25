@@ -1,10 +1,10 @@
-// columns.tsx
+
 import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
-import { Customer } from "@/interfaces"; // Ajusta la importación de Customer
+import { Customer } from "@/interfaces"; 
 import { DropdownMenuActions } from "./drop-menu-actions";
- // Ajusta la importación de DropdownMenuActions
+
 
 export const columns: ColumnDef<Customer>[] = [
   {
@@ -26,7 +26,7 @@ export const columns: ColumnDef<Customer>[] = [
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
-        Identification Number
+        Número de Identificación
         <ArrowUpDown className="ml-2 h-4 w-4" />
       </Button>
     ),
@@ -38,7 +38,7 @@ export const columns: ColumnDef<Customer>[] = [
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
-        Name
+        Nombres
         <ArrowUpDown className="ml-2 h-4 w-4" />
       </Button>
     ),
@@ -50,7 +50,7 @@ export const columns: ColumnDef<Customer>[] = [
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
-        Last Name
+        Apellidos
         <ArrowUpDown className="ml-2 h-4 w-4" />
       </Button>
     ),
@@ -62,13 +62,13 @@ export const columns: ColumnDef<Customer>[] = [
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
-        Occupation
+        Ocupación
         <ArrowUpDown className="ml-2 h-4 w-4" />
       </Button>
     ),
   },
   {
-    id: "actions",
+    id: "Acciones",
     cell: ({ row }) => {
       const customer = row.original;
       return <DropdownMenuActions customer={customer} />;

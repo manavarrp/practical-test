@@ -1,4 +1,3 @@
-// useGetCustomer.ts
 "use client";
 
 import { getCustomersService } from "@/service";

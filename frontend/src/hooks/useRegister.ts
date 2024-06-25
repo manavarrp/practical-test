@@ -1,4 +1,3 @@
-// hooks/useLogin.ts
 import { useCallback, useState } from "react";
 import { toast } from "react-toastify";
 import { registerService } from "@/service";
@@ -37,7 +36,6 @@ const useRegister = () => {
         if (flag) {
             toast.success("Registro exitoso");
               router.push("/auth/login");
-            // Redirigir a /auth/login después de 3 segundos
         } else {
           throw new Error(message || "Registration failed");
         }

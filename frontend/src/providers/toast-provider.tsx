@@ -28,7 +28,7 @@ export default function ToastProvider({ children }: ToastProviderProps) {
         }
         bodyClassName={() => "text-sm font-white font-med block p-3"}
         position="top-center"
-        autoClose={5000}
+        autoClose={4000}
       />
     </>
   );
