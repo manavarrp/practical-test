@@ -21,6 +21,7 @@ namespace TestFullstack.Infraestructure.Extension
 
             services.AddScoped<IAccountApplication, AccountRepository>();
             services.AddScoped<ICustomerApplication, CustomerRepositoy>();
+            services.AddScoped<IOccupationApplication, OccupationRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             // Configuración de la autenticación JWT

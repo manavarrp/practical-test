@@ -1,9 +1,4 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TestFullstack.Application.Commons.Bases.Response;
 using TestFullstack.Application.Interface;
 using TestFullstack.Domain.Entities.Customer;

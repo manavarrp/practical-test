@@ -2,7 +2,7 @@
 using TestFullstack.Application.Dto.Identity;
 using TestFullstack.Application.Interface.Identity;
 
-namespace TestFullstack.Api.Controllers
+namespace TestFullstack.Api.Controllers.Identity
 {
     [Route("api/[controller]")]
     [ApiController]

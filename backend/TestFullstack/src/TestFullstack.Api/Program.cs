@@ -26,7 +26,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: Cors,
         builder =>
         {
-            builder.WithOrigins("*");
+            builder.WithOrigins("http://localhost:3000"); // Permitir solo desde localhost:3000
             builder.AllowAnyMethod();
             builder.AllowAnyHeader();
         });
@@ -42,7 +42,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+// Aplicar política CORS
+app.UseCors(Cors);
 // Habilitar la autorización - autenticación
 app.UseAuthentication();
 app.UseAuthorization();

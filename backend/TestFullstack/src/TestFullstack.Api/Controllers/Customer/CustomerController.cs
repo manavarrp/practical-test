@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TestFullstack.Application.Features.Commands.CreateCustomer;
 using TestFullstack.Application.Features.Commands.DeleteCustomer;
@@ -6,7 +7,7 @@ using TestFullstack.Application.Features.Commands.UpdateCustomer;
 using TestFullstack.Application.Features.Queries.GetCustomer;
 using TestFullstack.Application.Features.Queries.GetCustomerByNumberIden;
 
-namespace TestFullstack.Api.Controllers
+namespace TestFullstack.Api.Controllers.Customer
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -19,6 +20,7 @@ namespace TestFullstack.Api.Controllers
             _mediator = mediator;
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetCustomer()
         {
@@ -26,6 +28,7 @@ namespace TestFullstack.Api.Controllers
             return Ok(response);
         }
 
+        [Authorize]
         [HttpGet("/api/Customer/Identification")]
         public async Task<IActionResult> GetCustomerByNumIden(string numberIden)
         {
@@ -33,6 +36,7 @@ namespace TestFullstack.Api.Controllers
             return Ok(response);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateCustomer([FromBody] CreateCustomerCommand command)
         {
@@ -40,15 +44,17 @@ namespace TestFullstack.Api.Controllers
             return Ok(response);
         }
 
+        [Authorize]
         [HttpPut]
-        public async Task<IActionResult>UpdateCustomer([FromBody] UpdateCustomerCommand command)
+        public async Task<IActionResult> UpdateCustomer([FromBody] UpdateCustomerCommand command)
         {
             var response = await _mediator.Send(command);
             return Ok(response);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> DeleteJob(int id)
+        [Authorize]
+        [HttpDelete("/api/Customer/delete/{id:int}")]
+        public async Task<IActionResult> DeleteCustomer(int id)
         {
             var response = await _mediator.Send(new DeleteCustomerCommand { Id = id });
             return Ok(response);
