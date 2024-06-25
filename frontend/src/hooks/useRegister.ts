@@ -11,6 +11,24 @@ interface RegisterParams {
   confirmPassword: string;
 }
 
+interface RegisterResponse {
+  flag: boolean;
+  message?: string;
+  errors?: Record<string, string>; 
+}
+
+interface BackendError extends Error {
+  response?: {
+    data?: {
+      message?: string;
+    };
+  };
+}
+
+const isBackendError = (error: unknown): error is BackendError => {
+  return typeof error === 'object' && error !== null && 'response' in error;
+};
+
 const useRegister = () => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
@@ -25,7 +43,7 @@ const useRegister = () => {
     }: RegisterParams): Promise<void> => {
       try {
         setIsLoading(true);
-        const { flag, message } = await registerService({
+        const response: RegisterResponse = await registerService({
           name,
           lastName,
           email,
@@ -33,15 +51,18 @@ const useRegister = () => {
           confirmPassword,
         });
 
-        if (flag) {
-            toast.success("Registro exitoso");
-              router.push("/auth/login");
-        } else {
-          throw new Error(message || "Registration failed");
-        }
-      } catch (error) {
-        console.error("Registration error:", error); 
-        toast.error("Error en el registro");
+        if (response.flag) {
+          toast.success("Registro exitoso");
+          router.push("/auth/login");
+        } 
+      } catch (error: unknown) {
+        if (isBackendError(error)) {
+          const backendErrorMessage = error.response?.data?.message;
+    
+          if (backendErrorMessage) {
+            toast.error(backendErrorMessage);
+          }
+        } 
       } finally {
         setIsLoading(false);
       }
