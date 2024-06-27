@@ -11,8 +11,6 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  // our logic starts from here
-
   let token = request.cookies.get('token')?.value // retrieve the token
   const allowedRoutes = ['/auth/login', '/auth/register'] // list of allowed paths user can visit without the token
   const isRouteAllowed = allowedRoutes.some((prefix) => pathname.startsWith(prefix)) // check path and see if matches our list then return a boolean

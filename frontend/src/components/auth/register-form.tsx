@@ -31,13 +31,8 @@ const { register, isLoading } = useRegister();
     },
   });
 
-  const onSubmit =async (values: z.infer<typeof RegisterSchema>) => {
-    try {
+  const onSubmit = async (values: z.infer<typeof RegisterSchema>) => {
       await register(values);
-      
-    } catch (error) {
-      console.error('Register error:', error);
-    }
   };
   return (
     <CardWrapped

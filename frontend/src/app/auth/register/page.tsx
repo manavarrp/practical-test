@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Test | Registro",
-  description: "Sign in to your account",
+  description: "Crea tu cuenta",
 };
 
 

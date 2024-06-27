@@ -1,24 +1,6 @@
 import axios from "@/axios";
+import { CustomerParams, LoginParams, RegisterParams } from "@/interfaces";
 
-interface LoginParams {
-  email: string;
-  password: string;
-}
-
-interface RegisterParams {
-  name: string;
-  lastName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
-
-interface CustomerParams {
-  identificationNumber: string;
-  name: string;
-  lastName: string;
-  occupationId: number;
-}
 
 export const loginService = async ({ email, password }: LoginParams) => {
   const response = await axios.post("/Account/login", {
@@ -50,11 +32,6 @@ export const getOccupationService = async () => {
   return response.data;
 };
 
-export const getCustomersService = async () => {
-  const response = await axios.get("/Customer");
-  return response.data;
-};
-
 export const postCustomerService = async ({
   identificationNumber,
   name,
@@ -67,6 +44,12 @@ export const postCustomerService = async ({
     lastName,
     occupationId,
   });
+  return response.data;
+};
+
+
+export const getCustomersService = async () => {
+  const response = await axios.get("/Customer");
   return response.data;
 };
 

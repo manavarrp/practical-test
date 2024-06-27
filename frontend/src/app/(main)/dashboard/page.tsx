@@ -8,7 +8,7 @@ import React from "react";
 
 export const metadata: Metadata = {
   title: "Test | Dashboard",
-  description: "Sign in to your account",
+  description: "Gestion de Clientes",
 };
 
 const DashboradPage = () => {

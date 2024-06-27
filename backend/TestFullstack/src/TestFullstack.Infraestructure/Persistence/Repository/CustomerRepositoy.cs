@@ -21,7 +21,7 @@ namespace TestFullstack.Infraestructure.Persistence.Repository
         {
             if (await _identityContext.Customers.AnyAsync(c => c.IdentificationNumber == customer.IdentificationNumber))
             {
-                throw new InvalidOperationException("Ya existe un usuario con ese número de identificación.");
+                throw new InvalidOperationException("Ya existe un cliente con ese número de identificación.");
             }
 
             _identityContext.Customers.Add(customer);

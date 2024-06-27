@@ -3,6 +3,7 @@
 import { CreateCustomer } from "@/components/customer/create-customer";
 import { DeleteCustomer } from "@/components/customer/delete-customer";
 import { EditCustomer } from "@/components/customer/edit-customer";
+import { GetProfile } from "@/components/profile/get-profile";
 import { useEffect, useState } from "react";
 
 export const ModalProvider = () => {
@@ -16,6 +17,7 @@ export const ModalProvider = () => {
       <CreateCustomer />
       <EditCustomer />
       <DeleteCustomer />
+      <GetProfile />
     </>
   );
 };

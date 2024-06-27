@@ -19,12 +19,12 @@ namespace TestFullstack.Application.Features.Commands.DeleteCustomer
             try
             {
                 await _customerApplication.DeleteAsync(new Customer() { Id = request.Id });
-                return new BaseResponse(true, "Customer eliminado");
+                return new BaseResponse(true, "Cliente eliminado con exito");
             }
             catch (Exception ex)
             {
 
-                return new BaseResponse(false, $"Error al eliminar el customer: {ex.Message}");
+                return new BaseResponse(false, $"Error al eliminar el cliente: {ex.Message}");
             }
         }
     }

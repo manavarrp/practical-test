@@ -29,13 +29,7 @@ const LoginForm = () => {
     },
   });
   const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
-    console.log(values);
-    try {
       await login(values);
-      
-    } catch (error) {
-      console.error('Login error:', error);
-    }
   };
   return (
     <CardWrapped

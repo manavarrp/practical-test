@@ -1,7 +1,7 @@
 import { Customer } from "@/interfaces";
 import { create } from "zustand";
 
-export type ModalType = "createCustomer" | "updateCustomer" | "deleteCustomer";
+export type ModalType = "createCustomer" | "updateCustomer" | "deleteCustomer" | "getProfile";
 
 interface ModalData {
   customer?: Customer;

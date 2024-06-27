@@ -22,7 +22,6 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
 
 import { CustomerSchema } from "@/shemas";
 import { useModal } from "@/store/modal/modal-store";
@@ -36,13 +35,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Occupations } from "@/interfaces";
-import { UseGetCustomer } from "@/hooks/useGetCustomer";
 
 export const CreateCustomer = () => {
   const { isOpen, onClose, type } = useModal();
-  const router = useRouter();
   const { postCustomer, isLoading } = UsePostCustomer();
-  const { getCustomer } = UseGetCustomer();
   const isModalOpen = isOpen && type === "createCustomer";
   const { result } = UseGetOccupation();
 
@@ -57,21 +53,13 @@ export const CreateCustomer = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof CustomerSchema>) => {
-    try {
       await postCustomer(values);
       form.reset();
       onClose();
-    } catch (error) {
-      console.log(error);
-    }
   };
 
-  const handleClose = () => {
-    form.reset();
-    onClose();
-  };
   return (
-    <Dialog open={isModalOpen} onOpenChange={handleClose}>
+    <Dialog open={isModalOpen} onOpenChange={onClose}>
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">

@@ -17,12 +17,8 @@ export const DeleteCustomer = () => {
     }
   };
 
-  const handleClose = () => {
-    onClose();
-  };
-
   return (
-    <Dialog open={isModalOpen} onOpenChange={handleClose}>
+    <Dialog open={isModalOpen} onOpenChange={onClose}>
       <DialogContent className="bg-white text-red-900 p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">Eliminar Cliente</DialogTitle>

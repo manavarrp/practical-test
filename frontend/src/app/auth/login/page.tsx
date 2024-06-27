@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Test | Inicio de Sesión",
-  description: "Sign in to your account",
+  description: "Inicio de Sesión",
 };
 
 const LoginPage = () => {

@@ -29,13 +29,13 @@ namespace TestFullstack.Application.Features.Commands.CreateCustomer
 
                 if (errors == null || errors.Count > 0)
                 {
-                    return new BaseResponse(false, "No fue posible crear el customer", errors);
+                    return new BaseResponse(false, "No fue posible crear el cliente", errors);
                 }
 
                 var customer = _mapper.Map<Customer>(request);
                 customer.CreatedAt = DateTime.UtcNow;
                 await _customerApplication.AddCustomer(customer);
-                return new BaseResponse(true, "Customer Creado");
+                return new BaseResponse(true, "Cliente creado con exito");
 
             }
             catch (Exception ex) 

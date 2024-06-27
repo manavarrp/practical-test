@@ -5,12 +5,10 @@ import { UseGetCustomer } from "@/hooks/useGetCustomer";
 import { useEffect } from "react";
 import { DataTable } from "@/components/data-table";
 import { columns } from "./column";
-import { CreateCustomer } from "../create-customer";
 
 const Customer = () => {
   const { result, getCustomer } = UseGetCustomer();
   const {  isOpen } = useModal();
-
 
   useEffect(() => {
     if (!isOpen) {
@@ -24,7 +22,6 @@ const Customer = () => {
 
       </div>
       <DataTable columns={columns} data={result} />
-      <CreateCustomer />
     </div>
   );
 };

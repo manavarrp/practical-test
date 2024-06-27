@@ -1,4 +1,3 @@
-// axios.ts
 import Axios from 'axios';
 import Router from 'next/router';
 import Cookies from 'js-cookie';

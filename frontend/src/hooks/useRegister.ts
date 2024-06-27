@@ -1,33 +1,9 @@
 import { useCallback, useState } from "react";
-import { toast } from "react-toastify";
-import { registerService } from "@/service";
 import { useRouter } from "next/navigation";
-
-interface RegisterParams {
-  name: string;
-  lastName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
-
-interface RegisterResponse {
-  flag: boolean;
-  message?: string;
-  errors?: Record<string, string>; 
-}
-
-interface BackendError extends Error {
-  response?: {
-    data?: {
-      message?: string;
-    };
-  };
-}
-
-const isBackendError = (error: unknown): error is BackendError => {
-  return typeof error === 'object' && error !== null && 'response' in error;
-};
+import { toast } from "react-toastify";
+import { isAxiosError } from "axios";
+import { RegisterParams, RegisterResponse } from "@/interfaces";
+import { registerService } from "@/service";
 
 const useRegister = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -52,17 +28,18 @@ const useRegister = () => {
         });
 
         if (response.flag) {
-          toast.success("Registro exitoso");
+          toast.success(response.message || "Registro exitoso");
           router.push("/auth/login");
-        } 
+        } else {
+          throw new Error(response.message || "Registro fallido");
+        }
       } catch (error: unknown) {
-        if (isBackendError(error)) {
-          const backendErrorMessage = error.response?.data?.message;
-    
-          if (backendErrorMessage) {
-            toast.error(backendErrorMessage);
-          }
-        } 
+        if (isAxiosError(error) && error.response) {
+          const backendErrorMessage = error.response.data.message;
+          toast.error(backendErrorMessage || "Error inesperado en el servidor");
+        } else {
+          toast.error("Error de red o desconocido");
+        }
       } finally {
         setIsLoading(false);
       }
